@@ -1,6 +1,8 @@
 ﻿string text = "А роза упала на лапу Азора"; //...определим текст
+string reversedText = "";
 
-PrintResult(GetArrayOfWords(text, GetQuantityOfWords(text))); //...выведем результат: тестс задом наперед
+reversedText = GetReversedText(GetArrayOfWords(text, GetQuantityOfWords(text))); //...сохраним текст задом наперед
+Console.Write(reversedText); //...выведем результат
 
 int GetQuantityOfWords(string input) //...посчитаем количество слов в тексте
 {
@@ -20,20 +22,24 @@ string[] GetArrayOfWords(string input, int size) //...получим масси�
     foreach (char c in input)
     {
         if (c != ' ')
+         {
             words[i] += c;
+         }   
         else 
             i++;
     }
     return words;
 }
 
-void PrintResult(string[] input)
+string GetReversedText(string[] input) //...сформируем текст задом наперед
 {
+    string reversedText = "";
     for (int i = input.Length - 1; i >= 0; i--)
     {
         if (i != 0)
-            Console.Write(input[i] + ' ');
+            reversedText += input[i] + ' ';
         else
-            Console.Write(input[i]);
+            reversedText += input[i];
     }
+    return reversedText;
 }
