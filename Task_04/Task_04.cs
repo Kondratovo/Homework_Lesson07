@@ -7,12 +7,12 @@ Console.Write(reversedText); //...выведем результат
 int GetQuantityOfWords(string input) //...посчитаем количество слов в тексте
 {
     int count = 0;
-    foreach (char c in input + '\0')
+    foreach (char c in input)
     {
-        if (c == ' ' || c == '\0')
+        if (c == ' ')
             count++;
     }
-    return count;
+    return count + 1;
 }
 
 string[] GetArrayOfWords(string input, int size) //...получим массив слов
@@ -22,10 +22,8 @@ string[] GetArrayOfWords(string input, int size) //...получим масси�
     foreach (char c in input)
     {
         if (c != ' ')
-         {
             words[i] += c;
-         }   
-        else 
+        else
             i++;
     }
     return words;
