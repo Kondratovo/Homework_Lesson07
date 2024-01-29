@@ -23,7 +23,7 @@ string[] GetArrayOfWords(string input, int size) //...получим масси�
     {
         if (c != ' ')
             words[i] += c;
-        else
+        if (c == ' ')
             i++;
     }
     return words;
