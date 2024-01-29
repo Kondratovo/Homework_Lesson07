@@ -1,9 +1,15 @@
-﻿string text = "AbCd1fGh";
+int m = 3;
+int n = 2;
 
-string GetLowerString (string text)
+int result = AckermannFunction(m, n);
+Console.WriteLine($"Результат функции Аккермана для m={m} и n={n} равен {result}");
+
+int AckermannFunction(int m, int n)
 {
-    text = text.ToLower();
-    return text;
+	if (m == 0)
+		return n + 1;
+	else if (n == 0)
+		return AckermannFunction(m - 1, 1);
+	else
+		return AckermannFunction(m - 1, AckermannFunction(m, n - 1));
 }
-
-Console.Write(GetLowerString(text));
