@@ -1,16 +1,16 @@
-﻿char[,] chars = {
-    {'a', 'b', 'c'},
-    {'d', 'e', 'f'},
-};
+int m = 1, n = 15;
 
-string GetStringFromChar(char [,] chars)
+void PrintNatural(int numberM, int numberN)
 {
-    string text = "";
-    foreach (char c in chars)
-    {
-        text += c;
-    }
-    return text;
+	if (numberM <= numberN)
+	{
+		if (numberM == numberN)
+			Console.Write($"{numberM}");
+		else
+			Console.Write($"{numberM}, ");
+		numberM++;
+		PrintNatural(numberM, numberN);
+	}
 }
 
-Console.Write(GetStringFromChar(chars));
+PrintNatural(m, n);
