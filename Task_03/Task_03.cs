@@ -1,24 +1,15 @@
-﻿string text = "saippuakivikauppias";
+int[] array = {1, 2, 5, 0, 10, 34};
+int index = array.Length-1;
 
-string GetInvertedText(string input)            //...перевернем исходную строку
+PrintReversedArray(array, index);
+
+void PrintReversedArray(int[] array, int index)
 {
-    string invText = "";
-    for (int i = input.Length-1; i >= 0; i--)
-    {
-        invText += input[i];
-    }
-    return invText;
+	if (index >= 0)
+	{
+		Console.Write(array[index]);
+		if (index != 0)
+			Console.Write(" ");
+		PrintReversedArray(array, index-1);
+	}
 }
-
-bool IsPalindrome(string str)
-{
-    bool isEqual = false;
-    str = str.ToLower();               //...приводим к нижнему регистру
-    if (str == GetInvertedText(str))   //...сравниваем исходную строку с перевернутой
-    {
-        isEqual = true;
-    }
-    return isEqual;
-}
-
-Console.Write(IsPalindrome(text) ? "Да" : "Нет");
